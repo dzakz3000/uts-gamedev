@@ -34,5 +34,11 @@ void OnTriggerEnter2D(Collider2D other)
      Debug.Log("Skor: " + skor);
      FindFirstObjectByType<GameManager>().AmbilKoin();
  }
+ 
+ IDamageable musuh = other.GetComponent<IDamageable>();
+    if (musuh != null)
+    {
+        musuh.KenaDamage(25); // Memberikan 25 damage ke musuh saat Player menyentuhnya
+    }
 }
 }
