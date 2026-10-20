@@ -105,7 +105,7 @@ public class Enemy : MonoBehaviour, IDamageable
     }
     void PerilakuPatrol()
     {
-       Debug.Log("Enemy sedang patroli");
+       //Debug.Log("Enemy sedang patroli");
     }
     void PerilakuChase()
     {
