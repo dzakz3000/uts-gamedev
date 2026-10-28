@@ -8,6 +8,7 @@ public class InventoryManager : MonoBehaviour, GrabableItem
     [SerializeField] private GameObject InventoryCanvas;
     [SerializeField] private int slotCount = 16;
     private bool InventoryActive;
+    [SerializeField] private ItemDetailsPanel itemDetailsPanel;
     public ItemSlot[] itemSlot;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -102,5 +103,28 @@ public class InventoryManager : MonoBehaviour, GrabableItem
         }
 
         Debug.LogWarning("Inventory is full, '" + item.ItemName + "' was lost.");
+    }
+
+    public void DeselectAllSlot()
+    {
+        foreach (ItemSlot slot in itemSlot)
+        {
+            slot.isItemSelected = false;
+            slot.SelectedPanel.SetActive(false);
+        }
+    }
+
+    public void SelectSlot(ItemSlot slot)
+    {
+        DeselectAllSlot();
+        slot.SelectedPanel.SetActive(true);
+        slot.isItemSelected = true;
+
+        if (itemDetailsPanel != null)
+        {
+            // Perhatikan: slot.itemDetails (mengambil data dari slot) 
+            // dan slot.itemQuantity (mengambil jumlah dari slot)
+            itemDetailsPanel.Show(slot.itemDetails, slot.itemQuantity); 
+        }
     }
 }

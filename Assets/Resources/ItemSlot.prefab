@@ -310,6 +310,10 @@ MonoBehaviour:
   isFull: 0
   quantityText: {fileID: 5032998257064788706}
   itemImage: {fileID: 2874811148809960484}
+  MaxStackSize: 99
+  SelectedPanel: {fileID: 8356404934906601783}
+  isItemSelected: 0
+  inventoryManager: {fileID: 0}
 --- !u!1 &8356404934906601783
 GameObject:
   m_ObjectHideFlags: 0
